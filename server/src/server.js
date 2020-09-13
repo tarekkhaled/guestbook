@@ -2,6 +2,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const connect = require ('./utilities/db');
+const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +15,7 @@ const authRoutes = require('./utilities/auth/auth.routers');
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cookieParser());
+app.use(helmet());
 
 
 // Routes
