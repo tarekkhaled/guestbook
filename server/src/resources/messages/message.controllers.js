@@ -70,11 +70,30 @@ const replyToMessage = async (req,res) => {
   }
 }
 
+const deleteMessage = async (req,res) => {
+  try {
+    const removed = await MessageModel.findOneAndRemove({
+      createdBy: req.user._id,
+      _id: req.params.id
+    })
+
+    if (!removed) {
+      return res.status(400).end()
+    }
+
+    return res.status(200).json({ data: removed })
+  } catch (e) {
+    console.error(e)
+    res.status(400).end()
+  }
+
+}
 
 
 module.exports = {
     createMessage,
     getAllMessages,
     updateMessage,
-    replyToMessage
+    replyToMessage,
+    deleteMessage
 }
