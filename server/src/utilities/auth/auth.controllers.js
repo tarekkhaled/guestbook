@@ -77,9 +77,38 @@ const signUserIn = async (req, res) => {
 
 
 
+const permission = async (req, res, next) => {
+  const bearer = req.headers.authorization
+
+  if (!bearer || !bearer.startsWith('Bearer ')) {
+    return res.status(401).end()
+  }
+
+  const token = bearer.split('Bearer ')[1].trim()
+  let payload
+  try {
+    payload = await verifyToken(token);
+    const user = await UserModel.findById(payload.id)
+    .select('-password')
+    .lean()
+    .exec()
+
+  if (!user) {
+    return res.status(401).end()
+  }
+
+  req.user = user
+  next()
+  } catch (e) {
+    return res.status(401).end()
+  }
+
+ 
+}
 
 module.exports = {
   signUserUp,
   signUserOut,
-  signUserIn
+  signUserIn,
+  permission
 };

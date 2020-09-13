@@ -10,7 +10,7 @@ const app = express();
 // routers 
 const authRoutes = require('./utilities/auth/auth.routers'); 
 const messagesRoutes = require('./resources/messages/message.routers');
-const { permission } = require('./utilities/security');
+const { permission } = require('./utilities/auth/auth.controllers');
 
 
 // middlewares 
