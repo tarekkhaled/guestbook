@@ -29,7 +29,7 @@ function hashThePassword (next) {
 }
 
 
-export const permission = async (req, res, next) => {
+const permission = async (req, res, next) => {
     const bearer = req.headers.authorization
   
     if (!bearer || !bearer.startsWith('Bearer ')) {
@@ -62,5 +62,6 @@ export const permission = async (req, res, next) => {
 module.exports = {
     createToken,
     verifyToken,
-    hashThePassword
+    hashThePassword,
+    permission
 }
