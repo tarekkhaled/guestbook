@@ -120,3 +120,10 @@ export const getW_authCookie =() => {
     }, {});
     return cookiesObject.w_auth;
 }
+
+export const config = (userToken) => {
+  const configObject = {
+      headers: {Authorization:`Bearer ${userToken}`}
+  }
+  return configObject;
+}
