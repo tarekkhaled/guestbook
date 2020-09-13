@@ -8,7 +8,9 @@ require('dotenv').config();
 const app = express();
 
 // routers 
-const authRoutes = require('./utilities/auth/auth.routers');  
+const authRoutes = require('./utilities/auth/auth.routers'); 
+const messagesRoutes = require('./resources/messages/message.routers');
+const { permission } = require('./utilities/security');
 
 
 // middlewares 
@@ -16,10 +18,12 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(helmet());
+app.use('/api',permission);
 
 
 // Routes
 app.use('/auth',authRoutes);
+app.use('/api/messages',messagesRoutes);
 
 async function startServer () {
     try {
