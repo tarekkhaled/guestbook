@@ -4,6 +4,7 @@
   "description": "apis for client",
   "main": "index.js",
   "author": "tarek khaled <tarek820@gmail.com>",
+  "dev": "nodemon index.js",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.0",
