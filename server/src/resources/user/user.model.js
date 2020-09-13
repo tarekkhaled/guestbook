@@ -1,4 +1,5 @@
 const mongoose = require ('mongoose');
+const {hashThePassword} = require('../../utilities/security');
 
 const userScheme = mongoose.Schema ({
   email: {
@@ -22,6 +23,8 @@ const userScheme = mongoose.Schema ({
     required: true,
   },
 });
+
+userScheme.pre ('save', hashThePassword);
 
 
 module.exports = mongoose.model('user',userScheme);
