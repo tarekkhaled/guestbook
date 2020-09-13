@@ -15,6 +15,7 @@ const getAllMessages = async (req,res) => {
   try {
     const docs = await MessageModel
       .find()
+      .populate('createdBy')
       .lean()
       .exec()
 
