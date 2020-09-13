@@ -19,10 +19,27 @@ const signUserUp = (req, res) => {
       res.status (400).json ({success: false, error: error});
     }
   };
+
+  const signUserOut = (req, res) => {
+    try {
+      res.clearCookie ('w_auth');
+      res.status (200).json ({
+        success: true,
+        message: 'User logged out successfully :(',
+      });
+    } catch (e) {
+      res.status (400).json ({
+        success: false,
+        error: e,
+      });
+    }
+  };
+  
   
 
 
 
 module.exports = {
   signUserUp,
+  signUserOut
 };
