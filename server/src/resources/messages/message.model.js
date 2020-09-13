@@ -6,12 +6,12 @@ const messageScheme = new mongoose.Schema(
         type : String,
         required : true
     },
-    due: Date,
     createdBy: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'user',
       required: true
     },
+    replies: []
   },
   { timestamps: true }
 )
