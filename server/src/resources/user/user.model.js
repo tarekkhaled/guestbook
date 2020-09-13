@@ -36,6 +36,5 @@ userScheme.methods.checkPassword = function (notHashedPassword) {
     });
   });
 };
-module.exports = mongoose.model ('User', userScheme);
 
 module.exports = mongoose.model('user',userScheme);
