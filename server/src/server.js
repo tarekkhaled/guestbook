@@ -3,13 +3,13 @@ async function startServer () {
   // imports 
   const express = require('express');
   const cookieParser = require('cookie-parser');
-  const connect = require ('../utilites/db');
+  const connect = require ('./utilities/db');
   require('dotenv').config();
   
   const app = express();
   
   // routers 
-  const authRoutes = require('../utilites/auth/auth.routers');  
+//   const authRoutes = require('./utilities/auth/auth.routers');  
   
   
   // middlewares 
@@ -19,7 +19,7 @@ async function startServer () {
   
   
   // Routes
-  app.use('/auth',authRoutes);
+//   app.use('/auth',authRoutes);
   await connect (process.env.DATABASE,process.env.PORT);
   
 }
