@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+i {
+  color: #97a5ce;
+}
 .Loader {
   position: fixed;
   width: 100%;
@@ -21,6 +24,11 @@
   width: 41px;
   height: 41px;
   animation: spin 2s linear infinite;
+}
+
+button { 
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 17px;
 }
 
   /* Safari */
