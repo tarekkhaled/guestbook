@@ -1,0 +1,128 @@
+input {
+    height: 32px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #97a5ce;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 17px;
+  }
+  
+  input::placeholder {
+    color: #97a5ce;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 17px;
+  }
+  
+  button {
+    outline: none;
+  }
+  
+  h2 {
+    width: 100%;
+    color: #f7f7fc;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    letter-spacing: 1.2px;
+    text-align: center;
+  }
+  
+  .c1 {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: #f073c8;
+    bottom: 0;
+    right: -43px;
+    border-radius: 50%;
+  }
+  
+  .c2 {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: #f073c8;
+    top: 120px;
+    left: -43px;
+    border-radius: 50%;
+  }
+  
+  .c3 {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: #f073c8;
+    top: 120px;
+    right: 50px;
+    border-radius: 50%;
+  }
+  
+  .signup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #171f38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+  }
+  
+  .signup__form {
+    background: #242e4ceb;
+    width: 70%;
+    height: 70%;
+    padding: 50px;
+    display: flex;
+    z-index: 2313;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .signup__form__Box .form-field {
+    border: 1px solid #171f38;
+    width: 350px;
+    display: flex;
+    margin-right: 10px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .signup__form__Box i {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .signup__form_submit {
+    padding: 10px 70px;
+    background: #f073c8;
+    border: none;
+    color: #fff;
+    width: 260px;
+    cursor: pointer;
+    transition: all 0.5 ease-in-out;
+  }
+  
+  .signup__form_submit:hover {
+    background: #d360af;
+  }
+  
+  .form-field-error-TK {
+    display: flex;
+    margin-top: 10px;
+    color: #e72121;
+  }
+  
+  @media only screen and (max-device-width: 450px) {
+    .signup__form {
+      width: 85%;
+    }
+    .signup__form__Box .form-field {
+      width: 250px;
+      margin-right: 0;
+      margin: 10px;
+    }
+  }
+  
