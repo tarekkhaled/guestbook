@@ -1,6 +1,6 @@
 const MessageModel = require('./message.model');
 
-const createMessage = (req,res) => {
+const createMessage = async (req,res) => {
     const createdBy = req.user._id
     try {
       const doc = await model.create({ ...req.body, createdBy })

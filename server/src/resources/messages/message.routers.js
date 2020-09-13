@@ -1,6 +1,6 @@
 const express = require('express');
-const { createMessage } = require('./message.controllers');
 const routers = express.Router();
+const { createMessage } = require('./message.controllers');
 
 // routers.get('/',getAllMessages);
 // routers.patch('/',updateMessage);
