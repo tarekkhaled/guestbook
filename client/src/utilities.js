@@ -76,39 +76,47 @@ export const vaildateFN = ({
     }
   
     if (password) {
-      if (value.length < 8) {
+      if (value.length < 4) {
         errorObject.error = `${label} must be at least 8 characters !`;
         errorObject.vaild = false;
       }
     }
   
     return errorObject;
-  };
+};
   
-  export const finalCheckOfForm = (formData) => {
-    let formVaild = true;
-    for (let key in formData) {
-      if (formData[key].hasOwnProperty("value")) {
-        if (!formData[key].value)
-          formData[
-            key
-          ].vaildationMessage = `${formData[key].label} is required !!`;
-        formVaild = formData[key].vaild && formVaild;
-      }
+export const finalCheckOfForm = (formData) => {
+  let formVaild = true;
+  for (let key in formData) {
+    if (formData[key].hasOwnProperty("value")) {
+      if (!formData[key].value)
+        formData[
+          key
+        ].vaildationMessage = `${formData[key].label} is required !!`;
+      formVaild = formData[key].vaild && formVaild;
     }
-    return formVaild;
-  };
+  }
+  return formVaild;
+};
   
-  export const finalFormCheck = (formData) => {
-    let formBody = {};
-    for (let key in formData) {
-      if (typeof formData[key] === "object") formBody[key] = formData[key].value;
-    }
-    return formBody;
-  };
+export const finalFormCheck = (formData) => {
+  let formBody = {};
+  for (let key in formData) {
+    if (typeof formData[key] === "object") formBody[key] = formData[key].value;
+  }
+  return formBody;
+};
   
-  export const showTheError = () => {
+export const showTheError = () => {
     const errorBox = document.querySelectorAll(".form-field-error-TK");
     errorBox.forEach((errorBox) => (errorBox.style.display = "flex"));
-  };
+};
   
+export const getW_authCookie =() => {
+  const cookiesObject = document.cookie.split('; ').reduce((prev, current) => {
+      const [name, value] = current.split('=');
+      prev[name] = value;
+      return prev
+    }, {});
+    return cookiesObject.w_auth;
+}

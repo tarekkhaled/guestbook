@@ -4,46 +4,55 @@ import {
   vaildateFN,
   finalCheckOfForm,
   finalFormCheck,
-  showTheError
+  showTheError,
+  getW_authCookie
 } from "../../utilities";
 import FormField from "../../reComponents/formfield";
+import axios from 'axios';
 
 class SignUp extends Component {
+
+  componentDidMount() {
+    if(getW_authCookie()) {
+      window.location.assign('/profile/')
+    }
+  }
+  
   state = {
     formSuccess: false,
     formData: {
-      firstName: {
+      firstname: {
         element: "input",
         value: "",
-        label: "firstName",
+        label: "firstname",
         config: {
           type: "text",
-          id: "firstName",
-          name: "firstName",
+          id: "firstname",
+          name: "firstname",
           placeholder: "Enter your firstname .."
         },
         vaildation: {
           required: true,
-          firstName: true
+          firstname: true
         },
         vaild: false,
         vaildationMessage: "",
         withIcon: true,
         iconClass: "fas fa-user"
       },
-      lastName: {
+      lastname: {
         element: "input",
         value: "",
-        label: "lastName",
+        label: "lastname",
         config: {
           type: "text",
-          id: "lastName",
-          name: "lastName",
+          id: "lastname",
+          name: "lastname",
           placeholder: "Enter your lastname .."
         },
         vaildation: {
           required: true,
-          lastName: true
+          lastname: true
         },
         vaild: false,
         vaildationMessage: "",
@@ -121,9 +130,12 @@ class SignUp extends Component {
       {
         formSucess: finalCheckOfForm(formData)
       },
-      () => {
+      async () => {
         if (this.state.formSucess) {
           const dataToSubmit = finalFormCheck(formData);
+          const response = await axios.post('/auth/signup/',dataToSubmit);
+          if(response.status === 200)
+            window.location.assign('/profile');
         } else {
           showTheError();
         }
@@ -133,7 +145,7 @@ class SignUp extends Component {
 
   render() {
     const {
-      formData: { firstName, lastName, email, password }
+      formData: { firstname, lastname, email, password }
     } = this.state;
 
     return (
@@ -149,8 +161,8 @@ class SignUp extends Component {
           <h2>Sign Up</h2>
           <div className="signup__form__Box">
             <FormField
-              formInfo={firstName}
-              formID="firstName"
+              formInfo={firstname}
+              formID="firstname"
               onTyping={(data) => {
                 this.handleFormChange(data);
               }}
@@ -158,8 +170,8 @@ class SignUp extends Component {
           </div>
           <div className="signup__form__Box">
             <FormField
-              formInfo={lastName}
-              formID="lastName" // must be the same name with formData fields
+              formInfo={lastname}
+              formID="lastname" // must be the same name with formData fields
               onTyping={(data) => {
                 this.handleFormChange(data);
               }}
