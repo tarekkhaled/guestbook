@@ -1,0 +1,16 @@
+{
+  "name": "cotech",
+  "version": "1.0.0",
+  "description": "server-client merging",
+  "main": "index.js",
+  "author": "tarek khaled <tarek820@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "run-server": "npm run dev --prefix server",
+    "run-client": "npm start --prefix client",
+    "full-stack-dev": "concurrently \"npm:run-server\" \"npm:run-client\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
