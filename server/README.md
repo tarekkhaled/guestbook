@@ -14,15 +14,15 @@
 
 #### Security is represented in
 - Use Middleware **helmet** to protect us from
- - csp ( Content-Security-Policy)
- - hidePoweredBy
- - hsts (Strict-Transport-Security)
- - xssFilter
+  - csp ( Content-Security-Policy)
+  - hidePoweredBy
+  - hsts (Strict-Transport-Security)
+  - xssFilter
  
 - Use Jsonwebtoken for authentication and this 
   represented as two main functions
- - create token (sign in , sign up ) send it with cookies in response
- - verify token (for any route start with /api)
+  - create token (sign in , sign up ) send it with cookies in response
+  - verify token (for any route start with /api)
 </br>
 </br>
 
