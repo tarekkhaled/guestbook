@@ -1,4 +1,4 @@
-import React,{Suspense,lazy} from 'react';
+ import React,{Suspense,lazy} from 'react';
 import {Switch,Route} from 'react-router-dom';
 import Loader from './components/loader';
 const Login = lazy(() => import('./components/login'));
