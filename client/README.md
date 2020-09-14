@@ -14,13 +14,6 @@
 </br>
 </br>
 
-#### Postman Collection
-```
-https://www.getpostman.com/collections/51b7eae7aa3f5117111f
-```
-</br>
-</br>
-
 #### To start the Cient (dev)
 ```
 cd /client
