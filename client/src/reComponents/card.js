@@ -1,10 +1,50 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { getW_authCookie,config } from '../utilities';
 
 export default class MessageCard extends Component {
    
+    state = {
+        formSuccess: false,
+        currentMessageID : '',
+        formData: {
+          reply: '',
+        },
+      };
+
+    updateReply = (e) => {
+        const {formData} = this.state;
+        const newFormData = {...formData};
+        newFormData['reply'] = e.target.value;
+        this.setState({
+            formData:newFormData
+        })
+    }
+
+    handleFormSubmit = async (messageId,e) => {
+        e.preventDefault();
+        const { formData,formData:{reply,replyBy} } = this.state;
+        if(!reply) return alert('write a reply please !');
+        let user = localStorage.getItem('user') ;
+        if(user) {
+            user = JSON.parse(user);
+            const name = user?.firstname + ' ' + user?.lastname;
+            const {formData} = this.state;
+            const newFormData = {...formData};
+            this.setState({
+                formData:newFormData
+            })
+            console.log(name)
+        }
+        const response = await axios.post(`/api/messages/reply/${messageId}`,formData,config(getW_authCookie()));
+        console.log({response})
+        if(response.status === 200) {
+          window.location.reload();
+        }
+    }
+         
     render() {
-        const {message,messageCreator,showDengrousFn,replies} = this.props
-        console.log({replies})
+        const {message,id,messageCreator,showDengrousFn,replies} = this.props
         return (
             <div className="MessageCard">
                 <div className="MessageCard__creator">
@@ -22,10 +62,10 @@ export default class MessageCard extends Component {
                     : <form
                     className="signup__form"
                     autoComplete="off"
-                    onSubmit={this.handleFormSubmit}
+                    onSubmit={(e) =>this.handleFormSubmit(id,e)}
                 >
                 {replies && replies.map((reply,i) => (
-                    <div className="MessageCard__reply">
+                    <div className="MessageCard__reply" key={i}>
                         <div className="MessageCard__reply__replier">
                             <i className="fas fa-user"></i>
                             {!reply.replyBy ? 'user' : reply.replyBy}
@@ -33,9 +73,9 @@ export default class MessageCard extends Component {
                         {reply?.reply}     
                     </div>
                 ))}
-            <textarea className="MessageCard__textarea" name="message" placeholder="write your message here..." onChange={this.updateMessage}></textarea>
-            <button className="MessageCard__submit" type="submit">
-                Submit
+            <textarea onChange={this.updateReply} className="MessageCard__textarea" name="reply" placeholder="write your message here..."></textarea>
+            <button className="MessageCard__submit" type="submit" onClick={(e) =>this.handleFormSubmit(id,e)}>
+                reply
             </button>
         </form>
                 }

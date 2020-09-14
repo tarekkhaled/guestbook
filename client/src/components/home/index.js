@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MessageCard from '../../reComponents/card';
 import { getW_authCookie,config } from '../../utilities';
+import Navbar from '../navbar';
+
 
 
 export default class Home extends Component {
@@ -19,15 +21,16 @@ export default class Home extends Component {
         const user = localStorage.getItem('user');
         if(user) {
             const id = JSON.parse(user)._id;
-            console.log({messageId,userId:id})
             if(id === messageId) return true;
             return false;
         }
     }
+
+    
     render() {
-        console.log({messages:this.state.messages})
         return (
             <div className="Home">
+                <Navbar show="home"/>
                 {this.state.messages && this.state.messages.map((message,i) => (
                     <MessageCard
                      message = {message.message}
