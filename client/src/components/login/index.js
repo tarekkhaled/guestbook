@@ -59,7 +59,7 @@ class Login extends Component {
         withIcon: true,
         iconClass: "fas fa-lock"
       }
-    }
+    },
   };
 
   handleFormChange = async ({ value, formID }) => {
@@ -96,8 +96,11 @@ class Login extends Component {
         if (this.state.formSucess) {
           const dataToSubmit = finalFormCheck(formData);
           const response = await axios.post('/auth/login/',dataToSubmit);
-          if(response.status === 200)
+          if(response.status === 200) {
+            localStorage.setItem('user', JSON.stringify(response.data.user));
             window.location.assign('/profile');
+          }
+           
         } else {
           showTheError();
         }
@@ -107,43 +110,43 @@ class Login extends Component {
 
   render() {
     const {
-      formData: { firstname, lastname, email, password }
+      formData: {email, password }
     } = this.state;
 
     return (
-      <div className="signup">
-        <div className="c1"></div>
-        <div className="c2"></div>
-        <div className="c3"></div>
-        <form
-          className="signup__form"
-          autoComplete="off"
-          onSubmit={this.handleFormSubmit}
-        >
-          <h2>Log in</h2>
-          
-          <div className="signup__form__Box email-wrapper">
-            <FormField
-              formInfo={email}
-              formID="email" // must be the same name with formData fields
-              onTyping={(data) => {
-                this.handleFormChange(data);
-              }}
-            />
-          </div>
-          <div className="signup__form__Box">
-            <FormField
-              formInfo={password}
-              formID="password" // must be the same name with formData fields
-              onTyping={(data) => {
-                this.handleFormChange(data);
-              }}
-            />
-          </div>
-          <button className="signup__form_submit" type="submit">
-            Submit
-          </button>
-        </form>
+        <div className="signup">
+            <div className="c1"></div>
+            <div className="c2"></div>
+            <div className="c3"></div>
+
+            <form
+            className="signup__form"
+            autoComplete="off"
+            onSubmit={this.handleFormSubmit}
+            >
+                <h2>Log in</h2>
+                <div className="signup__form__Box email-wrapper">
+                    <FormField
+                    formInfo={email}
+                    formID="email" // must be the same name with formData fields
+                    onTyping={(data) => {
+                        this.handleFormChange(data);
+                    }}
+                    />
+                </div>
+                <div className="signup__form__Box">
+                    <FormField
+                    formInfo={password}
+                    formID="password" // must be the same name with formData fields
+                    onTyping={(data) => {
+                        this.handleFormChange(data);
+                    }}
+                    />
+                </div>
+                <button className="signup__form_submit" type="submit">
+                    Submit
+                </button>
+            </form>
       </div>
     );
   }
