@@ -146,6 +146,7 @@ class Login extends Component {
                 <button className="signup__form_submit" type="submit">
                     Submit
                 </button>
+                <p className="signup_op"> New User ? <a href="/signup"> Sign up</a></p>
             </form>
       </div>
     );
