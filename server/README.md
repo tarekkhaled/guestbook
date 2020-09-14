@@ -48,6 +48,7 @@ https://www.getpostman.com/collections/51b7eae7aa3f5117111f
 
 #### To start the Server (dev)
 ```
+create new .env file with these attr [DATABASE,PORT,JWTSECERT]
 cd /server
 yarn i || npm install (for first clone) 
 yarn dev || npm start dev
