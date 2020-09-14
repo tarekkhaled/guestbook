@@ -15,16 +15,17 @@ export default class Home extends Component {
             window.location.assign('/login/') 
         }
         const response = await axios.get('/api/messages/',config(getW_authCookie()));
+        console.log({response})
         if(response.status === 200) {
             this.setState({messages:response.data.data});
         }
     }
 
     showDengrousFn = (messageId) => {
-        const user = localStorage.getItem('user');
+        let user = localStorage.getItem('user');
         if(user) {
-            const id = JSON.parse(user)._id;
-            if(id === messageId) return true;
+            user = JSON.parse(user)
+            if(user._id === messageId) return true;
             return false;
         }
     }
