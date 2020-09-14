@@ -34,12 +34,11 @@ class Profile extends Component {
         e.preventDefault();
         const { formData,formData:{message} } = this.state;
         if(!message) return alert('write a message please !');
-        console.log({formData})
-        const response = await axios.post('/api/messages/',formData,config(getW_authCookie()));
+        const response = await axios.patch(`/api/messages/${this.state.messageId}`,formData,config(getW_authCookie()));
         console.log({response})
-        if(response.status === 201) {
+        if(response.status === 200) {
           localStorage.setItem('message', JSON.stringify(response.data.data));
-          window.location.reload();
+          window.location.assign('/home');
         }
          
         
@@ -54,7 +53,7 @@ class Profile extends Component {
                     onSubmit={this.handleFormSubmit}
                 >
             <h2>Create New Message </h2>
-            <textarea className="Profile__textarea" name="message" value={this.state.oldMessage}></textarea>
+            <textarea className="Profile__textarea" name="message" defaultValue={this.state.oldMessage} onChange={this.updateMessage}></textarea>
           <button className="signup__form_submit" type="submit">
             Edit
           </button>

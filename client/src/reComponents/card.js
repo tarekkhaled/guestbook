@@ -50,7 +50,8 @@ export default class MessageCard extends Component {
     }
 
     updateMessage = async (message,id,e) => {
-        localStorage.setItem('toUpdate',{id,message});
+        localStorage.setItem('toUpdate',JSON.stringify({id,message}));
+        window.location.assign(`/update/message/${id}`);
     }
     render() {
         const {message,id,messageCreator,showDengrousFn,replies} = this.props
