@@ -18,7 +18,7 @@
  - hidePoweredBy
  - hsts (Strict-Transport-Security)
  - xssFilter
-```
+ 
 - Use Jsonwebtoken for authentication and this 
   represented as two main functions
  - create token (sign in , sign up ) send it with cookies in response
