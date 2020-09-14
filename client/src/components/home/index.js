@@ -34,7 +34,7 @@ export default class Home extends Component {
         return (
             <div className="Home">
                 <Navbar show="home"/>
-                {this.state.messages && this.state.messages.map((message,i) => (
+                {this.state.messages.length > 0 ? this.state.messages.map((message,i) => (
                     <MessageCard
                      message = {message.message}
                      id = {message._id}
@@ -43,7 +43,7 @@ export default class Home extends Component {
                      showDengrousFn = {this.showDengrousFn(message.createdBy._id)}
                      key={i}
                  />
-                ))}
+                )) : <h3>No messags to shown for now</h3>}
             </div>
         )
     }
