@@ -10,6 +10,7 @@ const Profile = lazy(() => import('./components/profile'));
 const routes = () => (
     <Suspense fallback={<Loader/>}>
         <Switch>
+            <Route exact path='/' component={Login}/>
             <Route exact path='/home' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={SignUP}/>
