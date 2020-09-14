@@ -53,17 +53,15 @@ const updateMessage = async (req,res) => {
 
 const replyToMessage = async (req,res) => {
   try {
-    const message = await MessageModel.findOne({_id: req.params.id})
-        .lean()
-        .exec()
+      const update = await MessageModel.findOneAndUpdate({_id: req.params.id},
+        { "$push": { "replies": {...req.body}  } } , {new:true} ).lean().exec();
 
-      if (!message) {
-        return res.status(400).end()
-      }
-      message.replies.push({...req.body,replyBy:req.user._id});
-      res.status(200).json({
+        if (!update) {
+          return res.status(400).end()
+        }
+        res.status(200).json({
         success:true,
-        message
+        doc:update
       })
   } catch (e) {
     console.error(e)
