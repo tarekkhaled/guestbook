@@ -1,9 +1,9 @@
 # GuestBook Task
 
-## For Client
-  [Client README](https://github.com/tarekkhaled/guestbook/tree/master/server)
-
 ## For Server
+  [Server README](https://github.com/tarekkhaled/guestbook/tree/master/server)
+
+## For Client
 [Client README](https://github.com/tarekkhaled/guestbook/tree/master/client)
 
 ## For Full-stack-dev
