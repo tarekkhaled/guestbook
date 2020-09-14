@@ -1,14 +1,10 @@
 # GuestBook Task
 
 ## For Client
-[Client README]()
-
-```
-</br>
-</br>
+  [Client README](https://github.com/tarekkhaled/guestbook/tree/master/server)
 
 ## For Server
-[Client README]()
+[Client README](https://github.com/tarekkhaled/guestbook/tree/master/client)
 
 ## For Full-stack-dev
 ```
