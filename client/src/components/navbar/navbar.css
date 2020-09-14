@@ -1,7 +1,7 @@
 .Navbar {
     position: fixed;
     top: 33px;
-    width: 50%;
+    right: 0px;
     display: flex;
     justify-content: center;
 }
