@@ -1,5 +1,7 @@
 # GuestBook Task
 
+## DEMO 
+![guestbook-demo](https://media.giphy.com/media/VhE6EV7yGc9Y6k4E2B/giphy.gif)
 ## For Server
   [Server README](https://github.com/tarekkhaled/guestbook/tree/master/server)
 
