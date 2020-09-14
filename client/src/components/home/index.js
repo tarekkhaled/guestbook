@@ -11,6 +11,9 @@ export default class Home extends Component {
         messages : []
     }
     async componentDidMount() {
+        if(!getW_authCookie()) {
+            window.location.assign('/login/') 
+        }
         const response = await axios.get('/api/messages/',config(getW_authCookie()));
         if(response.status === 200) {
             this.setState({messages:response.data.data});
