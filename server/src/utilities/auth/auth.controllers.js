@@ -59,10 +59,7 @@ const signUserIn = async (req, res) => {
         const token = createToken (user);
         res.cookie ('w_auth', token).status (200).json ({
           success: true,
-          user: {
-            _id: user._id,
-            username: user.username,
-          },
+          user: user
         });
       })
       .catch (e => res.status (200).json ({success: false, error: e}));
@@ -74,7 +71,6 @@ const signUserIn = async (req, res) => {
     });
   }
 };
-
 
 
 const permission = async (req, res, next) => {
