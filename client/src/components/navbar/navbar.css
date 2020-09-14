@@ -1,0 +1,15 @@
+.Navbar {
+    position: fixed;
+    top: 33px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.Navbar_btn {
+    padding: 10px 40px;
+    font-size: 18px;
+    margin: 0px 20px;
+    cursor: pointer;
+    transition: all 0.5 ease-in-out;
+}
