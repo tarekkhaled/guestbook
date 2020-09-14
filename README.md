@@ -1,7 +1,7 @@
 # GuestBook Task
 
 ## DEMO 
-[Imgur](https://i.imgur.com/Ssyeoy7.gifv)## For Server
+![guestbook-demo](https://media.giphy.com/media/VhE6EV7yGc9Y6k4E2B/giphy.gif)
 
 ## Server 
 
