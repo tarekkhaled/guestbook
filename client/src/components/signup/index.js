@@ -135,8 +135,9 @@ class SignUp extends Component {
           const dataToSubmit = finalFormCheck(formData);
           const response = await axios.post('/auth/signup/',dataToSubmit);
           if(response.status === 200)
+            localStorage.setItem('user', JSON.stringify(response.data.user));
             window.location.assign('/profile');
-        } else {
+      } else {
           showTheError();
         }
       }
