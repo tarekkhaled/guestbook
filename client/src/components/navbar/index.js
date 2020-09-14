@@ -12,11 +12,15 @@ export default class Navbar extends Component {
         window.location.assign('/login');
     }
 
+    goProfile = async () => {
+        window.location.assign('/profile');
+    }
+
     render() {
         const {show} = this.props
         return (
             <div className="Navbar">
-                <button className="Navbar_btn" onClick={this.goHome}>{show === 'home'?'Create Message' : 'Home'}</button>
+                <button className="Navbar_btn" onClick={show === 'home'? this.goProfile : this.goHome }>{show === 'home'?'Create Message' : 'Home'}</button>
                 <button className="Navbar_btn" onClick={this.goOut}>Logout</button>
             </div>
         )
