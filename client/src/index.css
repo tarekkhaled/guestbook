@@ -31,6 +31,96 @@ button {
   font-size: 17px;
 }
 
+.Home {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: #171f38;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.MessageCard {
+  width: 60%;
+  height: fit-content;
+  background: #242e4ceb;
+  margin: 20px;
+  font-size: 27px;
+  padding: 10px;
+  color: #fff;
+}
+
+.MessageCard__creator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #171f38;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  color: #97a5ce;
+}
+.MessageCard__creator i {
+  margin-right: 20px;
+}
+
+.MessageCard__message {
+  width: 100%;
+  background: #3a466d;
+  min-height: 120px;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 9px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.MessageCard__textarea {
+  width: -webkit-fill-available;
+  margin: 10px;
+  min-height: 60px;
+  outline: none;
+  padding: 10px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 17px;
+
+}
+
+.MessageCard__submit {
+  float: right;
+  margin: 0px 20px;
+  padding: 8px 30px;
+  cursor: pointer;
+}
+
+.MessageCard__reply {
+  border: 1px solid #3a466d;
+  margin: 20px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 70px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 17px;
+
+}
+
+.MessageCard__reply__replier {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  border-right: 1px solid #3a466d;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 17px;
+  margin-right: 20px;
+
+}
   /* Safari */
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }

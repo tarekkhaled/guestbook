@@ -6,9 +6,6 @@ export default class Navbar extends Component {
     goHome = () => {
         window.location.assign('/home');
     }
-    goPrivate = () => {
-        window.location.assign('/my/messages');
-    }
     goOut = async () => {
         await axios.get('/auth/logout');
         localStorage.clear();
@@ -19,7 +16,6 @@ export default class Navbar extends Component {
         return (
             <div className="Navbar">
                 <button className="Navbar_btn" onClick={this.goHome}>Home</button>
-                <button className="Navbar_btn" onClick={this.goPrivate}>My Messages</button>
                 <button className="Navbar_btn" onClick={this.goOut}>Logout</button>
             </div>
         )
