@@ -5,6 +5,7 @@ const Login = lazy(() => import('./components/login'));
 const SignUP = lazy(() => import('./components/signup'));
 const Home = lazy(() => import('./components/home'));
 const Profile = lazy(() => import('./components/profile'));
+const Update = lazy(() => import('./components/update'));
 
 
 const routes = () => (
@@ -15,6 +16,7 @@ const routes = () => (
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={SignUP}/>
             <Route exact path='/Profile' component={Profile}/>
+            <Route exact path='/update/message/:id' component={Update}/>
         </Switch>
     </Suspense>
 )
